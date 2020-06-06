@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "5442570475",
+    "firebase_url": "https://mapandfirebase-1b00e.firebaseio.com",
+    "project_id": "mapandfirebase-1b00e",
+    "storage_bucket": "mapandfirebase-1b00e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5442570475:android:702b9a3bf1145dffc696ae",
+        "android_client_info": {
+          "package_name": "com.example.mapandfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5442570475-2mt8e0tmqssb062jjja3889hbgejmtl9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEYqqpJzBGtckE5qTK6Jcnug73RkYnILQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5442570475-2mt8e0tmqssb062jjja3889hbgejmtl9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
