@@ -30,7 +30,6 @@
         app:counterMaxLength="8">
 
         <com.google.android.material.textfield.TextInputEditText
-
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -44,7 +43,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
         android:text="Sign In" />
 
+    <TextView
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Or" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/SignUpButton"
+        android:layout_gravity="center"
+        android:text="Sign Up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -1,15 +1,10 @@
 package com.example.mapandfirebase
 
-import android.R.attr
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 
@@ -22,31 +17,35 @@ class SignInActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         SignInButton.setOnClickListener {
             if (checkInput()) {
-                verifyUser(email.text.toString(), password.toString())
+                verifyUser(email.text.toString(), password.text.toString())
             }
+        }
+        SignUpButton.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
     }
 
     private fun verifyUser(email: String, password: String) {
+        Toast.makeText(this, email + "\n" + password, Toast.LENGTH_LONG).show()
         auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this,
-                OnCompleteListener<AuthResult?> { task ->
-                    if (task.isSuccessful) {
-                        startActivity(Intent(this, MainActivity::class.java))
-                    } else {
-                        Toast.makeText(
-                            this, "Authentication failed.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                })
+            .addOnCompleteListener(
+                this
+            ) { task ->
+                if (task.isSuccessful) {
+                    startActivity(Intent(this, MainActivity::class.java))
+                } else {
+
+                    Toast.makeText(
+                        this, "Authentication failed." + task.exception,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
     }
 
     override fun onStart() {
         super.onStart()
-        val user: FirebaseUser? = auth.currentUser
-        if (user!!.isEmailVerified)
-            startActivity(Intent(this, MainActivity::class.java))
+
     }
 
     private fun checkInput(): Boolean {
